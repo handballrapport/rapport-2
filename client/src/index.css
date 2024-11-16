@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Cairo";
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .spinner {
+  border: 14px solid rgba(0, 0, 0, 0.1);
+  border-top: 14px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #25b09b;
+  animation: l15 1s infinite linear;
+}
+.loader::before,
+.loader::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes l15{ 
+  100%{transform: rotate(1turn)}
+}
+
+.dots {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+@keyframes dot-flashing {
+  0% {
+      opacity: 1;
+  }
+  25% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+  75% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.dot {
+  animation: dot-flashing 1.5s infinite;
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+/* HTML: <div class="loader"></div> */
+.updating {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid lightblue;
+  border-right-color: orange;
+  animation: l2 1s infinite linear;
+}
+@keyframes l2 {to{transform: rotate(1turn)}}
+/* HTML: <div class="loader"></div> */
+.saving {
+  width: 40px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #25b09b;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 2s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+
+
+/* Add this to your CSS file or in a style tag */
+@keyframes flashRed {
+  0% {
+    color: red;
+  }
+  50% {
+    color: #3051A8;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.flash-red {
+  animation: flashRed 1.5s infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HTML: <div class="loader"></div> */
+.spinner {
+  width: 100px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-color: #ccc #0000;
+  animation: l16 .9s infinite linear;
+}
+.spinner::before,
+.spinner::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+}
+.spinner::before {
+  border-color: #3451a8 #0000;
+  animation: inherit; 
+  animation-duration: .5s;
+  animation-direction: reverse;
+}
+.spinner::after {
+  margin: 8px;
+}
+@keyframes l16 { 
+  100%{transform: rotate(1turn)}
+}
+.brd{
+  border: 2px red solid;
+}
+
+/* Define the infinite scaling animation */
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1); /* Start at original size */
+  }
+  50% {
+    transform: scale(1.3); /* Scale up to 110% of original size */
+  }
+  100% {
+    transform: scale(1); /* Return to original size */
+  }
+}
+
+.scale-btn {
+  display: inline-block; 
+  padding: 10px; 
+  border: none;
+  border-radius: 50%; 
+  background-color: #3451a8; 
+  color: white; 
+  font-size: 16px; 
+  cursor: pointer; 
+  animation: scaleAnimation 4s infinite ease-in-out; 
+  transition: all 2s;
+}
+
+/* Optional: Change background color on hover/focus */
+.scale-btn:hover,
+.scale-btn:focus {
+  background-color: #3480b9; /* Change background color on hover/focus */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slowPulse {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.05);
+  }
+}
+
+.hero-text,
+.cta-button {
+  opacity: 0;
+}
+
+.cta-button {
+  animation-delay: 1s;
+}
+
